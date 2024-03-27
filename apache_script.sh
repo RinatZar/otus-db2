@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DIR='/var/www/html'
-DIR1='/home/otus-db1/index.html'
+DIR1='/home/otus-db2/index.html'
 DIR2='/var/www/html'
 
 #Копируем конфиг 
