@@ -30,6 +30,9 @@ echo "Ожидаем соедиения с сервером 5 секунд"
 sleep 5
 echo "Репликация запущена. Статус состояния:"
 mysql -e "show replica status\G"
+
+mysql -e "create database otus;"
+mysql otus < /home/otus-db2/dump-data.sql
 #--Настройка бэкапа базы данных OTUS"
 apt install cron
 sleep 5
