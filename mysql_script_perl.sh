@@ -26,6 +26,7 @@ echo "Конфиг MySQL-repl настроен"
 mysql -e "STOP REPLICA;"
 mysql -e "CHANGE REPLICATION SOURCE TO SOURCE_HOST='192.168.47.12', SOURCE_USER='repl', SOURCE_PASSWORD='123456', SOURCE_AUTO_POSITION = 1, GET_SOURCE_PUBLIC_KEY = 1;"
 mysql -e "START REPLICA;"
-
+echo "Ожидаем седиения с сервером 5 секунд"
+sleep 5
 echo "Репликация запущена. Статус состояния:"
 mysql -e "show replica status\G"
