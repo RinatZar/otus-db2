@@ -24,7 +24,7 @@ for TABLE in $TABLES; do
   BACKUP_FILE="$BACKUP_DIR/backup_$(date +%Y-%m-%d_%H-%M-%S)_${TABLE}.sql"
 
   # Выполнение команды mysqldump для создания резервной копии текущей таблицы
-  mysqldump -h $DB_HOST -u $DB_USER -p$DB_PASS $DB_NAME $TABLE --events --routines > $BACKUP_FILE
+  mysqldump -h $DB_HOST -u $DB_USER -p$DB_PASS $DB_NAME $TABLE --events --routines --dump-slave > $BACKUP_FILE
 
   # Проверка успешности выполнения команды mysqldump
   if [ $? -eq 0 ]; then
