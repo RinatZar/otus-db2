@@ -31,8 +31,10 @@ sleep 5
 echo "Репликация запущена. Статус состояния:"
 mysql -e "show replica status\G"
 #--Настройка бэкапа базы данных OTUS"
+apt install cron
+sleep 5
 # Путь к скрипту, который нужно выполнить
-SCRIPT_PATH="//home/otus-db2/reserve_copy.sh"
+SCRIPT_PATH="/home/otus-db2/reserve_copy.sh"
 
 # Команда, которую нужно добавить в cron для выполнения каждые 5 минут
 CRON_COMMAND="*/5 * * * * $SCRIPT_PATH"
