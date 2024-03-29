@@ -26,7 +26,19 @@ echo "Конфиг MySQL-repl настроен"
 mysql -e "STOP REPLICA;"
 mysql -e "CHANGE REPLICATION SOURCE TO SOURCE_HOST='192.168.47.12', SOURCE_USER='repl', SOURCE_PASSWORD='123456', SOURCE_AUTO_POSITION = 1, GET_SOURCE_PUBLIC_KEY = 1;"
 mysql -e "START REPLICA;"
-echo "Ожидаем седиения с сервером 5 секунд"
+echo "Ожидаем соедиения с сервером 5 секунд"
 sleep 5
 echo "Репликация запущена. Статус состояния:"
 mysql -e "show replica status\G"
+#--Настройка бэкапа базы данных OTUS"
+# Путь к скрипту, который нужно выполнить
+SCRIPT_PATH="//home/otus-db2/reserve_copy.sh"
+
+# Команда, которую нужно добавить в cron для выполнения каждые 5 минут
+CRON_COMMAND="*/5 * * * * $SCRIPT_PATH"
+
+# Добавляем команду в cron таблицу
+(crontab -l ; echo "$CRON_COMMAND") | crontab -
+
+echo "Задание на потабличный бэкап базы данных OTUS успешно добавлено в планировщик"
+chmod +x reserve_copy.sh
