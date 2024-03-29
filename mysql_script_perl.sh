@@ -20,7 +20,7 @@ else
   echo "файл $cre_mysqld_cnf не найден"
 fi
 service mysql restart
-echo "Конфиг MySQL-source настроен"
+echo "Конфиг MySQL-repl настроен"
 
 #Запускаем репликацию 
 mysql -e "STOP REPLICA;"
