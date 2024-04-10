@@ -47,3 +47,4 @@ CRON_COMMAND="*/5 * * * * $SCRIPT_PATH"
 
 echo "Задание на потабличный бэкап базы данных OTUS успешно добавлено в планировщик"
 chmod +x reserve_copy.sh
+echo "Резервные копии будут сохранены в /backup_mySQL/"
