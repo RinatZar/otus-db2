@@ -21,5 +21,5 @@
    ```
 6. Запустить скрипт настройки MySQL.
    ```bash
-    bash mysql_script_perl.sh
+    bash mysql_script_repl.sh
    ```
